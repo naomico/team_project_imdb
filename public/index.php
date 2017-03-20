@@ -4,7 +4,7 @@ require dirname(dirname(__FILE__)).'/inc/config.php';
 
 // Je récupère les données de la database dont j'ai besoin
 $sql = '
-	SELECT 
+	SELECT
 ';
 
 
