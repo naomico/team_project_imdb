@@ -6,10 +6,10 @@ to the database and functions
 
 // the config file contains all the configuration values which change on different servers (dev and prod, e.g.)
 $config = array(
-		'DB_username' => 'christianb',
-		'DB_password' => 'wbforce3',
-		'DB_database' => 'christianb_sql0',
-		'DB_host' => 'wf3.progweb.fr',
+		'DB_username' => '',
+		'DB_password' => '',
+		'DB_database' => '',
+		'DB_host' => '',
 	);
 
 // inclusion of the connection to the database
