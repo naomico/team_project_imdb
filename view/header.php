@@ -12,15 +12,15 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="">Accueil</a>
+					<a href="">Home</a>
 				</li>
 				<li>
-					<a href="">Catégories</a>
+					<a href="">Categories</a>
 				</li>
 				<li>
-					<a href="">Ajouter un film</a>
+					<a href="">Add a Movie</a>
 				</li>
 			</ul>
-			<input type="search" placeholder="Recherche"><input type="submit" value="Ok">
+			<input type="search" placeholder="Search"><input type="submit" value="OK">
 		</nav>
 		<hr>
