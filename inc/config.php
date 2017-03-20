@@ -1,7 +1,7 @@
 <?php
 /*---------------------------------------------
-		CONFIGURATION FILE with access
-		to the database and functions
+CONFIGURATION FILE with access
+to the database and functions
 ---------------------------------------------*/
 
 // the config file contains all the configuration values which change on different servers (dev and prod, e.g.)

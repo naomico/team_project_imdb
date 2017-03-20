@@ -1,8 +1,8 @@
 <?php
 
 /*---------------------------------------------
-		DATABASE FILE accessing the
-		database
+DATABASE FILE accessing the
+database
 ---------------------------------------------*/
 
 $dsn = 'mysql:host='.$config['DB_host'].';dbname='.$config['DB_database'].';charset=utf8';
