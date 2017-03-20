@@ -13,7 +13,7 @@
 	<?php foreach ($moviePreviewList as $row) : ?>
 	<div>
 		<img src="<?= $row['mov_poster']?>">
-		<a href=""><?= $row['mov_title']</a>
+		<a href=""><?= $row['mov_title'] ?></a>
 	</div>
 	<?php endforeach; ?>
 	<!-- fin de mon foreach -->
