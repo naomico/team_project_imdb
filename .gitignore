@@ -1,0 +1,3 @@
+# Config file ignore
+/inc/config.php
+/inc/db.php
