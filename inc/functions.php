@@ -34,7 +34,7 @@ function filterIntInputPost($name, $defaultValue=0) {
     return $defaultValue;
 }
 
-function addMovie($movieTitle,$movieReleaseYear,$categoryId,$casting,$synopsis,$filePath,$supportId,$mov_poster) {
+function addMovie($movieTitle,$movieReleaseYear,$categoryId,$casting,$synopsis,$filePath,$supportId,$moviePoster) {
     global $pdo;
 
     $sql = '
