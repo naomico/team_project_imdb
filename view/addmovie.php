@@ -1,4 +1,14 @@
-<!-- Juste un petit test -->
+<div class="row">
+	<div class="col-sm-3 col-sm-6 col-xs-12">
+		<form action="" method="post" id="formAjax">
+			<fieldset>
+				<input type="text" class="form-control" name="lnameToto" id="lname" value="" />
+				<input type="submit" class="btn btn-success" value="Valider"/>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
 <p>Gestion du film: mov_title</p>
 <hr>
 <?php if (!empty($errorList)) : ?>
