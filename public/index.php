@@ -8,7 +8,7 @@ require dirname(dirname(__FILE__)).'/inc/config.php';
 
 // Je récupère les données de la database dont j'ai besoin pour ma deuxième requête concernant les aperçus des films
 $sql = '
-	SELECT mov_title
+	SELECT mov_title, mov_poster
 	FROM movie
 ';
 
