@@ -2,14 +2,10 @@
 // access to config file
 require dirname(dirname(__FILE__)).'/inc/config.php';
 
-// Je récupère les données de la database dont j'ai besoin pour ma première requête concernant les catégories
-
-
-
 // Je récupère les données de la database dont j'ai besoin pour ma deuxième requête concernant les aperçus des films
 $sql = '
-	SELECT mov_title
-	FROM movie
+SELECT mov_title, mov_poster
+FROM movie
 ';
 
 $sth = $pdo->query($sql);

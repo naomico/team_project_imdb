@@ -34,7 +34,10 @@ Movie List Page
 }*/
 
 #moviePreviewList {
+
 	display: flex;
 	flex-direction: row;
     justify-content: space-around;
 }
+
+

@@ -1,18 +1,12 @@
-<p class="text-center">Eodem tempore etiam Hymetii praeclarae indolis viri negotium est actitatum, cuius hunc novimus esse textum. cum Africam pro consule regeret Carthaginiensibus victus inopia iam lassatis, ex horreis Romano populo destinatis frumentum dedit, pauloque postea cum provenisset segetum copia, integre sine ulla restituit mora.
+<p>Eodem tempore etiam Hymetii praeclarae indolis viri negotium est actitatum, cuius hunc novimus esse textum. cum Africam pro consule regeret Carthaginiensibus victus inopia iam lassatis, ex horreis Romano populo destinatis frumentum dedit, pauloque postea cum provenisset segetum copia, integre sine ulla restituit mora.
 </p>
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Rechercher">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">OK</button>
-      </span>
-    </div>
- </div>
+
+
 <ul>
 	<!-- Il va falloir mettre un foreach/des foreach plus tard pour les catégories et les films à afficher -->
-	<li><a href="">Science-Fiction ()</a></li>
-	<li><a href="">Comédie ()</a></li>
-	<li><a href="">Aventure ()</a></li>
+	<li><a href="">Science-Fiction (<?php print_r(['nb']) ?>)</a></li>
+	<li><a href="">Comedy ()</a></li>
+	<li><a href="">Adventure ()</a></li>
 	<li><a href="">Thriller ()</a></li>
 </ul>
 <br>
