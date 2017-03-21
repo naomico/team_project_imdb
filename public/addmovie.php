@@ -2,97 +2,92 @@
 
 // access to config file
 require dirname(dirname(__FILE__)).'/inc/config.php';
-/* NAOMI: À CONTINUER/VERIFIER DEMAIN
+
+
 // Formulaire soumis
 if (!empty($_POST)) {
 	//print_r($_POST);exit;
 	// Je récupère les données en GET
-	$lastname = filterStringInputPost('stu_lastname');
-	$firstname = filterStringInputPost('stu_firstname');
-	$email = filterStringInputPost('stu_email');
-	$birthdate = filterStringInputPost('stu_birthdate');
-	$friendliness = filterIntInputPost('stu_friendliness', -1);
-	$sessionId = filterIntInputPost('ses_id');
-	$cityId = filterIntInputPost('cit_id');
+	$movieTitle = filterStringInputPost('mov_title');
+	$movieReleaseYear = filterIntInputPost('mov_year');
+	$categoryId = filterIntInputPost('cat_id');
+	$casting = filterStringInputPost('mov_actors');
+	$synopsis = filterStringInputPost('mov_info');
+	$filePath = filterStringInputPost('mov_path');
+	$supportId = filterIntInputPost('sup_id');
+	$moviePoster = filterStringInputPost('mov_poster');
 
-	// Le tableau contenant toutes les valeurs
+	// Le tableau contenant toutes les valeurs erreurs
 	$errorList = array();
 
 	// Je teste toutes les erreurs
-	if (empty($lastname)) {
-		$errorList[] = 'Le nom est vide';
+	if (empty($movieTitle)) {
+		$errorList[] = 'Le titre du film est vide';
 	}
-	else if (strlen($lastname) < 2) {
-		$errorList[] = 'Le nom est incorrect';
+	if (empty($movieReleaseYear)) {
+		$errorList[] = 'La date de sortie du film est vide';
 	}
-	if (empty($firstname)) {
-		$errorList[] = 'Le prénom est vide';
+	else if (strlen($movieReleaseYear) != 4) {
+		$errorList[] = 'La date de sortie est incorrect';
 	}
-	else if (strlen($firstname) < 2) {
-		$errorList[] = 'Le prénom est incorrect';
+	if (empty($categoryId)) {
+		$errorList[] = 'La catégorie est vide';
 	}
-	if (empty($email)) {
-		$errorList[] = 'L\'email est vide';
+	if (empty($casting)) {
+		$errorList[] = 'Le casting (Acteurs/Actrices) est vide';
 	}
-	else if (filter_var($email,  FILTER_VALIDATE_EMAIL) === false) {
-		$errorList[] = 'L\'email est incorrect';
+	if (empty($synopsis)) {
+		$errorList[] = 'Le synopsis est vide';
 	}
-	if (empty($birthdate)) {
-		$errorList[] = 'La date de naissance est vide';
+	if (empty($filePath)) {
+		$errorList[] = 'Le chemin du fichier n\'est pas renseignée';
 	}
-	if ($friendliness < 0 || $friendliness > 5) {
-		$errorList[] = 'La sympathie est incorrecte';
+	if (empty($supportId)) {
+		$errorList[] = 'Le support n\'est pas renseignée';
 	}
-	if (empty($sessionId)) {
-		$errorList[] = 'La session n\'est pas renseignée';
-	}
-	if (empty($cityId)) {
-		$errorList[] = 'La ville n\'est pas renseignée';
+	if (empty($moviePoster)) {
+		$errorList[] = 'L\'url de l\'image' n\'est pas renseignée';
 	}
 
 	// Si aucune erreur
 	if (empty($errorList)) {
-		// J'appelle la fonction ajoutant le student à la DB
-		$studentId = addStudent(
-			$lastname,
-			$firstname,
-			$email,
-			$birthdate,
-			$friendliness,
-			$sessionId,
-			$cityId
+		// J'appelle la fonction ajoutant le FILM à la DB
+		$movieId = addMovie(
+			$movieTitle,
+			$movieReleaseYear,
+			$categoryId,
+			$casting,
+			$synopsis,
+			$filePath,
+			$supportId,
+			$moviePoster
 		);
 
+		// redirection
 		// Si ajout ok
-		if ($studentId > 0) {
+		if ($movieId > 0) {
 			// Je redirige sur sa page
-			header('Location: edit.php?id='.$studentId);
+			header('Location: edit.php?id='.$movieId);
 			exit;
 		}
 	}
 }
 
-// Je récupère toutes les villes
-$citiesList = getAllCities();
-
-// Je récupère toutes les sessions
-$sessionsList = getAllSessions();
-
 // Pour éviter les notices dans la vue, j'initialise mon tableau de données
-$studentInfos = array(
-	'stu_id' => 0,
-	'stu_lastname' => '',
-	'stu_firstname' => '',
-	'stu_email' => '',
-	'stu_birthdate' => '',
-	'stu_friendliness' => '',
-	'session_ses_id' => '',
-	'city_cit_id' => '',
-	'cit_name' => '',
-	'stu_age' => '',
+$movieInfos = array(
+	'mov_id' => 0,
+	'mov_title' => '',
+	'mov_year' => '',
+	'cat_id' => '',
+	'cat_title' => '',
+	'mov_actors' => '',
+	'mov_info' => '',
+	'mov_path' => '',
+	'sup_id' => '',
+	'sup_name' => '',
+	'mov_poster' => '',
 );
 
-*/
 
 
 

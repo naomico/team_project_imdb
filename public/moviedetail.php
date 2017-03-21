@@ -5,7 +5,8 @@ require dirname(dirname(__FILE__)).'/inc/config.php';
 
 
 
-
+// Je récupère le paramètre dans l'URL
+$movieId = isset($_GET['mov_id']) ? intval($_GET['mov_id']) : 0;
 
 
 
