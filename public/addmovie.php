@@ -46,7 +46,7 @@ if (!empty($_POST)) {
 		$errorList[] = 'Le support n\'est pas renseignée';
 	}
 	if (empty($moviePoster)) {
-		$errorList[] = 'L\'url de l\'image' n\'est pas renseignée';
+		$errorList[] = 'L\'url de l\'image n\'est pas renseignée';
 	}
 
 	// Si aucune erreur
