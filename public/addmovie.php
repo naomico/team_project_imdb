@@ -67,11 +67,12 @@ if (!empty($_POST)) {
 		// Si ajout ok
 		if ($movieId > 0) {
 			// Je redirige sur sa page
-			header('Location: edit.php?id='.$movieId);
+			header('Location: moviedetail.php?id='.$movieId);
 			exit;
 		}
 	}
 }
+
 
 // Pour éviter les notices dans la vue, j'initialise mon tableau de données
 $movieInfos = array(

@@ -1,20 +1,26 @@
 <?php
 
 // this function will allow us to select all the available movie information in the database
-function selectMovieInfo() {
-    $movieInfoSelect = '
-        SELECT *
+function getMovieInfos($id) {
+    global $pdo;
+
+    $getMovieInfos = '
+        SELECT `mov_id`, `mov_title`, `mov_year`, `mov_path`, `mov_info`, `mov_support`, `mov_inserted`, `mov_actors`, `categories_cat_id`, `support_sup_id`, `mov_poster`,`cat_title`, `sup_name`
         FROM movie
         INNER JOIN categories ON categories.cat_id = movie.categories_cat_id
-        INNER JOIN support ON support.sup_id = movie.support_cat_id
+        INNER JOIN support ON support.sup_id = movie.support_sup_id
+        WHERE mov_id = :movieId
     ';
+    $sth = $pdo->prepare($getMovieInfos);
+    $sth->bindValue(':movieId', $id,  PDO::PARAM_INT);
 
-    $request = $pdo->query($movieInfoSelect);
+    if ($sth->execute() === false) {
+        print_r($pdo->errorInfo());
+    }
+    else {
+        $movieInfos = $sth->fetch(PDO::FETCH_ASSOC);
 
-    if ( $request->execute() === false ) {
-        print_r( $pdo->errorInfo() );
-    } else {
-        $movieInfo = $request->fetch(PDO::FETCH_ASSOC);
+        return $movieInfos;
     }
 }
 // function selectMovieInfo end
