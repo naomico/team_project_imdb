@@ -1,3 +1,4 @@
+<!-- Juste un petit test -->
 <p>Gestion du film: mov_title</p>
 <hr>
 <form action="" method="post">
