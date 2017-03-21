@@ -8,13 +8,16 @@
 	<li><a href="">Aventure ()</a></li>
 	<li><a href="">Thriller ()</a></li>
 </ul>
-<div>
+<br>
+<br><br>
+<div class="row">
 	<!-- Début de mon foreach = pour chaque élément stocké dans la variable $moviePreviewList j'appliquerai le code -->
 	<?php foreach ($moviePreviewList as $row) : ?>
-	<div>
-		<img src="<?= $row['mov_poster']?>">
-		<a href=""><?= $row['mov_title'] ?></a>
-	</div>
+		<div class="col-lg-4" id="moviePreviewList">
+			<img src="<?= $row['mov_poster']?>">
+			<a href=""><?= $row['mov_title'] ?></a>
+
+		</div>
 	<?php endforeach; ?>
 	<!-- fin de mon foreach -->
 </div>

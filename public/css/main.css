@@ -27,3 +27,13 @@ Movie Detail Page
 /*===========================
 Movie List Page
 ===========================*/
+
+/*#movieList {
+	position: relative;
+}*/
+
+#moviePreviewList {
+	display: flex;
+	flex-direction: row;
+    justify-content: space-around;
+}
