@@ -1,16 +1,15 @@
 <div class="row">
 	<div class="col-sm-3 col-sm-6 col-xs-12">
-		<form action="" method="post" id="formAjax">
+		<form action="" method="get" id="formAPI" class="form-inline">
 			<fieldset>
-				<input type="text" class="form-control" name="lnameToto" id="lname" value="" />
-				<input type="submit" class="btn btn-success" value="Valider"/>
+				<input type="text" class="form-control" name="get_omdb" value="<?= $searchMovie ?>" />
+				<input type="submit" class="btn btn-success" value="Search" />
 			</fieldset>
 		</form>
 	</div>
 </div>
-
-<p>Gestion du film: mov_title</p>
 <hr>
+<p>Gestion du film:</p>
 <?php if (!empty($errorList)) : ?>
 	<div class="alert alert-danger" role="alert">
 		<?php foreach ($errorList as $currentErrorText) : ?>
@@ -34,8 +33,20 @@
 
 			<div class="form-group">
 				<label>Catégorie</label>
+				<select name="cat_id" class="form-control">
+					<option value="">choisissez</option>
+					<?php foreach ($categoriesList as $catId=>$catName) : ?>
+							<option value="<?= $catId ?>"<?= $movieInfos['cat_id'] == $catId ? ' selected=selected"' : '' ?>><?= $catName ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+
+			<!--
+			<div class="form-group">
+				<label>Catégorie</label>
 				<input type="text" class="form-control" name="cat_id" value="<?= $movieInfos['cat_id'] ?>" placeholder="Catégorie" />
 			</div>
+			-->
 
 			<div class="form-group">
 				<label>Acteurs/Actrices</label>
@@ -44,7 +55,7 @@
 
 			<div class="form-group">
 				<label>Déscription du film</label>
-				<textarea type="text" class="form-control" name="mov_info" value="<?= $movieInfos['mov_info'] ?>" placeholder="Déscription du film" cols="30" rows="3"></textarea>
+				<textarea type="text" class="form-control" name="mov_info" placeholder="Déscription du film" cols="30" rows="3"><?= $movieInfos['mov_info'] ?></textarea>
 			</div>
 
 			<div class="form-group">
@@ -53,9 +64,22 @@
 			</div>
 
 			<div class="form-group">
+				<label>Support</label>
+				<select name="sup_id" class="form-control">
+					<option value="">choisissez</option>
+					<?php foreach ($supportsList as $supId=>$supName) : ?>
+							<option value="<?= $supId ?>"<?= $movieInfos['sup_id'] == $supId ? ' selected=selected"' : '' ?>><?= $supName ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+
+			<!--
+			<div class="form-group">
 				<label>Support du fichier</label>
 				<input type="text" class="form-control" name="sup_id" value="<?= $movieInfos['sup_id'] ?>" placeholder="Support du fichier" />
-			</div>
+			</div>-->
+
+
 			<div class="form-group">
 				<label>Affiche du film</label>
 				<input type="text" class="form-control" name="mov_poster" value="<?= $movieInfos['mov_poster'] ?>" placeholder="Affiche du film" />
@@ -65,3 +89,7 @@
 	<input type="submit" class="btn btn-success" value="Modifier" />
 	<input type="submit" class="btn btn-success" value="Ajouter" />
 </form>
+
+<script type="text/javascript">
+
+</script>

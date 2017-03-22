@@ -2,6 +2,22 @@
 
 // access to config file
 require dirname(dirname(__FILE__)).'/inc/config.php';
+?>
+<pre>
+	<?php
+		$searchMovie = $_GET['get_omdb'];
+
+		// HTTP request to API OMDbAPI
+		$json = file_get_contents('http://www.omdbapi.com/?t='.$searchMovie);
+		//echo $json.'<br>';
+
+		// Get it as array
+		$array = json_decode($json, true);
+		//var_dump($array);
+	?>
+</pre>
+<?php
+
 
 
 // Formulaire soumis
@@ -67,29 +83,32 @@ if (!empty($_POST)) {
 		// Si ajout ok
 		if ($movieId > 0) {
 			// Je redirige sur sa page
-			header('Location: edit.php?id='.$movieId);
+			header('Location: moviedetail.php?id='.$movieId);
 			exit;
 		}
 	}
 }
 
-// Pour éviter les notices dans la vue, j'initialise mon tableau de données
+// Je récupère toutes les catégories
+$categoriesList = getAllCategories();
+
+// Je récupère tous les supports
+$supportsList = getAllSupports();
+
+// Pour que les informations s'affichent automatiquement grâce aux infos récoltées par l'API: (les informations non-renseignées par l'api devront être introduit manuellement.)
 $movieInfos = array(
 	'mov_id' => 0,
-	'mov_title' => '',
-	'mov_year' => '',
+	'mov_title' => $array['Title'],
+	'mov_year' => $array['Year'],
 	'cat_id' => '',
 	'cat_title' => '',
-	'mov_actors' => '',
-	'mov_info' => '',
+	'mov_actors' => $array['Actors'],
+	'mov_info' => $array['Plot'],
 	'mov_path' => '',
 	'sup_id' => '',
 	'sup_name' => '',
-	'mov_poster' => '',
+	'mov_poster' => $array['Poster'],
 );
-
-
-
 
 
 //=====================================
