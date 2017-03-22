@@ -26,18 +26,27 @@ Movie Detail Page
 
 
 /*===========================
-Movie List Page
+index page
 ===========================*/
 
-/*#movieList {
-	position: relative;
-}*/
 
-#moviePreviewList {
 
-	display: flex;
-	flex-direction: row;
+
+#ulCat{
+	height: 40px;
+	width: 14%;
+	display: inline-flex;
+	flex-direction: column;
     justify-content: space-around;
+    background-color: green;
+    border-radius: 10px;
+}
+
+#aCat{
+	text-decoration: none;
+	color: white;
+	font-size: 1,5em;
+	padding-top: 15px;
 }
 
 
