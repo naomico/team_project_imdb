@@ -111,30 +111,32 @@ function addMovie($movieTitle,$movieReleaseYear,$categoryId,$casting,$synopsis,$
 
     return false;
 }
-/*
-function updateStudent($id,$lastname,$firstname,$email,$birthdate,$friendliness,$sessionId,$cityId) {
+
+function updateMovie($id,$movieTitle,$movieReleaseYear,$categoryId,$casting,$synopsis,$filePath,$supportId,$moviePoster) {
     global $pdo;
 
     $sql = '
-        UPDATE student
-        SET stu_lastname = :lastname,
-        stu_firstname = :firstname,
-        stu_email = :email,
-        stu_birthdate = :birthdate,
-        stu_friendliness = :friendliness,
-        session_ses_id = :ses_id,
-        city_cit_id = :cit_id
-        WHERE stu_id = :id
+        UPDATE movie
+        SET mov_title = :movieTitle,
+        mov_year = :movieReleaseYear,
+        categories_cat_id = :cat_id,
+        mov_actors = :casting,
+        mov_info = :synopsis,
+        mov_path = :filePath,
+        support_sup_id = :sup_id,
+        mov_poster = :moviePoster
+        WHERE mov_id = :id
     ';
     $sth = $pdo->prepare($sql);
     $sth->bindValue(':id', $id);
-    $sth->bindValue(':lastname', $lastname);
-    $sth->bindValue(':firstname', $firstname);
-    $sth->bindValue(':email', $email);
-    $sth->bindValue(':birthdate', $birthdate);
-    $sth->bindValue(':friendliness', $friendliness, PDO::PARAM_INT);
-    $sth->bindValue(':ses_id', $sessionId, PDO::PARAM_INT);
-    $sth->bindValue(':cit_id', $cityId, PDO::PARAM_INT);
+    $sth->bindValue(':movieTitle', $movieTitle);
+    $sth->bindValue(':movieReleaseYear', $movieReleaseYear, PDO::PARAM_INT);
+    $sth->bindValue(':cat_id', $categoryId, PDO::PARAM_INT);
+    $sth->bindValue(':casting', $casting);
+    $sth->bindValue(':synopsis', $synopsis);
+    $sth->bindValue(':filePath', $filePath);
+    $sth->bindValue(':sup_id', $supportId, PDO::PARAM_INT);
+    $sth->bindValue(':moviePoster', $moviePoster);
 
     if ($sth->execute() === false) {
         print_r($sth->errorInfo());
@@ -145,4 +147,3 @@ function updateStudent($id,$lastname,$firstname,$email,$birthdate,$friendliness,
 
     return false;
 }
-*/

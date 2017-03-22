@@ -32,6 +32,7 @@ if (!empty($_POST)) {
 	$filePath = filterStringInputPost('mov_path');
 	$supportId = filterIntInputPost('sup_id');
 	$moviePoster = filterStringInputPost('mov_poster');
+	$id = filterIntInputPost('mov_id');
 
 	// Le tableau contenant toutes les valeurs erreurs
 	$errorList = array();
@@ -67,27 +68,41 @@ if (!empty($_POST)) {
 
 	// Si aucune erreur
 	if (empty($errorList)) {
-		// J'appelle la fonction ajoutant le FILM à la DB
-		$movieId = addMovie(
-			$movieTitle,
-			$movieReleaseYear,
-			$categoryId,
-			$casting,
-			$synopsis,
-			$filePath,
-			$supportId,
-			$moviePoster
-		);
+		/*if(!empty($movieInfos['mov_id'])){
+			// J'appelle la fonction ajoutant le FILM à la DB
+			$movieId = updateMovie(
+				$movieTitle,
+				$movieReleaseYear,
+				$categoryId,
+				$casting,
+				$synopsis,
+				$filePath,
+				$supportId,
+				$moviePoster
+			);
+		} else {*/
+			// J'appelle la fonction ajoutant le FILM à la DB
+			$movieId = addMovie(
+				$movieTitle,
+				$movieReleaseYear,
+				$categoryId,
+				$casting,
+				$synopsis,
+				$filePath,
+				$supportId,
+				$moviePoster
+			);
 
-		// redirection
-		// Si ajout ok
-		if ($movieId > 0) {
-			// Je redirige sur sa page
-			header('Location: moviedetail.php?id='.$movieId);
-			exit;
+			// redirection
+			// Si ajout ok
+			if ($movieId > 0) {
+				// Je redirige sur sa page
+				header('Location: moviedetail.php?id='.$movieId);
+				exit;
+			}
 		}
-	}
-}
+	/*}
+}*/
 
 // Je récupère toutes les catégories
 $categoriesList = getAllCategories();
@@ -97,19 +112,36 @@ $supportsList = getAllSupports();
 
 // Pour que les informations s'affichent automatiquement grâce aux infos récoltées par l'API: (les informations non-renseignées par l'api devront être introduit manuellement.)
 
-$movieInfos = array(
-	'mov_id' => 0,
-	'mov_title' => $array['Title'],
-	'mov_year' => $array['Year'],
-	'cat_id' => '',
-	'cat_title' => '',
-	'mov_actors' => $array['Actors'],
-	'mov_info' => $array['Plot'],
-	'mov_path' => '',
-	'sup_id' => '',
-	'sup_name' => '',
-	'mov_poster' => $array['Poster'],
-);
+/*if(!empty($movieInfos['mov_id'])){
+	$movieInfos = array(
+		'mov_id' => $movieId,
+		'mov_title' => ['mov_title'],
+		'mov_year' => ['mov_year'],
+		'cat_id' => ['categories_cat_id'],
+		'cat_title' => ['categories_cat_title'],
+		'mov_actors' => ['mov_actors'],
+		'mov_info' => ['mov_info'],
+		'mov_path' => ['mov_path'],
+		'sup_id' => ['support_sup_id'],
+		'sup_name' => ['support_sup_name'],
+		'mov_poster' => ['mov_poster'],
+	);
+
+} else {*/
+		$movieInfos = array(
+		'mov_id' => 0,
+		'mov_title' => $array['Title'],
+		'mov_year' => $array['Year'],
+		'cat_id' => '',
+		'cat_title' => '',
+		'mov_actors' => $array['Actors'],
+		'mov_info' => $array['Plot'],
+		'mov_path' => '',
+		'sup_id' => '',
+		'sup_name' => '',
+		'mov_poster' => $array['Poster'],
+	);
+/*};*/
 
 
 //=====================================
