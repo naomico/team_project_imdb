@@ -40,6 +40,50 @@ function filterIntInputPost($name, $defaultValue=0) {
     return $defaultValue;
 }
 
+function getAllCategories() {
+    global $pdo;
+
+    $categoriesList = array();
+    $sql = '
+        SELECT cat_id, cat_title
+        FROM categories
+        ORDER BY cat_title ASC
+    ';
+    $sth = $pdo->query($sql);
+    if ($sth === false) {
+        print_r($pdo->errorInfo());
+    }
+    else {
+        while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $categoriesList[$row['cat_id']] = $row['cat_title'];
+        }
+        return $categoriesList;
+    }
+}
+
+function getAllSupports() {
+    global $pdo;
+
+    $supportsList = array();
+    $sql = '
+        SELECT sup_id, sup_name
+        FROM support
+        ORDER BY sup_name ASC
+    ';
+    $sth = $pdo->query($sql);
+    if ($sth === false) {
+        print_r($pdo->errorInfo());
+    }
+    else {
+        while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $supportsList[$row['sup_id']] = $row['sup_name'];
+        }
+
+        return $supportsList;
+    }
+}
+
+
 function addMovie($movieTitle,$movieReleaseYear,$categoryId,$casting,$synopsis,$filePath,$supportId,$moviePoster) {
     global $pdo;
 
